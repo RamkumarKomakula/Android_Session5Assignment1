@@ -1,0 +1,176 @@
+abstract class Figure 
+{			double dim1;
+	
+	abstract void findArea();	
+  abstract void findPerimeter();	
+  abstract void findDetails();	
+
+	public static void main(String[] args)
+	{
+		Circle c = new Circle();	
+		Rectangle r = new Rectangle();	
+		Triangle t = new Triangle();	
+    
+		c.findDetails();
+	
+		r.findDetails();
+	
+		t.findDetails();
+	}
+}
+
+class Circle extends Figure
+{
+
+	double radius;
+	double PI=3.14159;	
+
+	public void findDetails()
+  {
+		System.out.println("PRINT DETAILS OF A CIRCLE");
+		System.out.println("=========================");
+		System.out.print("Enter the radius: ");
+		this.radius = Integer.parseInt(System.console().readLine());	
+		System.out.println("-------------------------");
+		findArea();	
+		findPerimeter();	
+		System.out.println();
+	}
+	
+	@Override	
+	public void findArea()
+  {
+		System.out.println("Area of Circle: " + getArea());
+	}
+	
+	@Override	
+	public void findPerimeter()
+  {
+		System.out.println("Perimeter of Circle: "+ getPerimeter());
+	}
+
+	public double getArea()
+  {
+		return this.PI*this.radius*this.radius;
+	}
+
+	public double getPerimeter()
+  {
+		return 2*PI*this.radius;
+	}
+}
+
+class Rectangle extends Figure
+{
+
+	double width;
+	double length;
+
+	public void findDetails()
+  {
+		System.out.println("PRINT DETAILS OF A RECTANGLE");
+		System.out.println("============================");
+		System.out.print("Enter the width: ");
+		this.width = Integer.parseInt(System.console().readLine());
+		System.out.print("Enter the length: ");
+		this.length = Integer.parseInt(System.console().readLine());
+		System.out.println("----------------------------");
+		findArea();
+		findPerimeter();
+		System.out.println();
+	}
+	
+	@Override
+	public void findArea()
+  {
+		System.out.println("Area of Rectangle: " + getArea());
+  }
+	@Override
+	public void findPerimeter()
+  {
+		System.out.println("Perimeter of Rectangle: " + getPerimeter());
+	}
+
+	public double getArea()
+  {
+		return (this.width * this.length);
+	}
+
+	public double getPerimeter(){
+		return (2*(this.width + this.length));
+	}
+}
+
+class Triangle extends Figure 
+{
+	double sidea;
+	double sidec;
+	double base;
+	double height;
+
+public void findDetails()
+{
+		System.out.println("PRINT DETAILS OF A TRIANGLE");
+		System.out.println("===========================");
+		System.out.print("Enter the side A: ");
+		this.sidea = Integer.parseInt(System.console().readLine());
+		System.out.print("Enter the side C: ");
+		this.sidec = Integer.parseInt(System.console().readLine());
+		System.out.print("Enter the base: ");
+		this.base = Integer.parseInt(System.console().readLine());
+		System.out.print("Enter the height: ");
+		this.height = Integer.parseInt(System.console().readLine());
+		System.out.println("---------------------------");
+		findArea();
+		findPerimeter();
+		System.out.println();
+	}
+
+	@Override
+	public void findArea()
+  {
+		System.out.println("Area of Triangle: " + getArea());
+	}
+	@Override
+	public void findPerimeter()
+  {
+		System.out.println("Perimeter of Triangle: " + getPerimeter());
+	}
+
+	public double getArea(){
+		return ((this.height * this.base)/2);
+	}
+
+	public double getPerimeter()
+	{
+		return (this.sidea + this.base + this.sidec);
+	}
+}
+
+
+Output:
+
+		PRINT DETAILS OF A CIRCLE
+		=========================
+		Enter the radius:22
+		-------------------------
+		Area of the Circle: 1520.52956
+		Perimeter of the Circle: 138.22996
+		
+		PRINT DETAILS OF A RECTANGLE
+		============================
+		Enter the width: 4
+		Enter the length: 6
+		----------------------------
+		Area of the Rectangle: 24.0
+		Perimeter of the Rectangle: 20.0
+		
+		PRINT DETAILS OF A TRIANGLE
+		============================
+		Enter the side A: 10
+		Enter the side c: 10
+		Enter the base: 14
+		Enter the height: 14
+		----------------------------
+		Area of the Triangle: 98.0
+		Perimeter of the Triangle: 36.0 
